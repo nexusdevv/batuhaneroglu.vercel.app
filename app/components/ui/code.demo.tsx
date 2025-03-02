@@ -1,4 +1,4 @@
-import { Squares } from "@/components/ui/squares-background"
+import { Squares } from "./squares-background"
 
 export function SquaresDemo() {
   return (

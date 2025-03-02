@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import Navigation from "./components/Navigation";
 import { useLanguage } from "./contexts/LanguageContext";
 import { useState } from "react";
@@ -26,7 +25,7 @@ export default function Home() {
     setFormStatus({ submitting: true, success: false });
     
     try {
-      const response = await fetch(form.action, {
+      await fetch(form.action, {
         method: 'POST',
         body: formData,
         headers: {
@@ -355,7 +354,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
-              <a href="/" className="text-xl font-bold tracking-tight text-white">Hydra</a>
+              <Link href="/" className="text-xl font-bold tracking-tight text-white">Hydra</Link>
               <p className="text-white/70 mt-2">
                 &copy; {new Date().getFullYear()} Batuhan Eroğlu. {t('footer.rights')}
               </p>
