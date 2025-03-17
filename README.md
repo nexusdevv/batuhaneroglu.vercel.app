@@ -1,127 +1,161 @@
-# Hydra | Personal Portfolio Website
+# Next.js Portfolio & Blog
 
-![Project Preview](https://i.imgur.com/cXXXXXX.png)
+A modern, responsive personal portfolio and blog website built with Next.js 14 and Tailwind CSS. This minimalist design showcases my work, skills, and blog articles with elegant animations and a clean interface.
 
-**Live Demo:** [https://batuhanerogl-e1gy0ighl-hhydraaas-projects.vercel.app](https://batuhanerogl-e1gy0ighl-hhydraaas-projects.vercel.app)
+![https://imgur.com/3ZakYVR](https://imgur.com/3ZakYVR.png)
 
-## ✨ Overview
+## Features
 
-This is a modern, responsive personal portfolio website built with Next.js, TypeScript, and Tailwind CSS. It features a clean, professional design with smooth animations, interactive background effects, and support for both English and Turkish languages.
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Modern UI**: Clean, minimalist interface with smooth animations
+- **Portfolio Section**: Showcase your projects and skills
+- **Blog Platform**: Share your thoughts and expertise with a built-in blog
+- **About Page**: Tell visitors about yourself and your background
+- **Gallery**: Display visual content in an elegant gallery format
+- **Social Media Integration**: Connect with GitHub and Instagram
+- **Animations**: Beautiful page transitions and content animations using Framer Motion
+- **Performance Optimized**: Fast loading and rendering
 
-The website is designed to showcase personal information, skills, projects, and provide a contact form for potential clients or employers to get in touch.
+## Technologies Used
 
-## 🚀 Features
-
-- **Responsive Design**: Fully responsive on all devices from mobile to desktop
-- **Bilingual Support**: Toggle between English and Turkish with smooth text transitions
-- **Interactive UI Elements**:
-  - Animated squares background with hover effects
-  - Smooth scroll navigation
-  - Text transition animations during language changes
-- **Modern UI Components**:
-  - Hero section with animated text
-  - Skills cards
-  - Project showcase
-  - Contact form with validation
-  - Thank you modal after form submission
-- **Dark/Light Mode**: Adapts to user's system preferences
-- **Performance Optimized**: Fast loading times and smooth interactions
-
-## 🛠️ Technologies Used
-
-- **Frontend Framework**: [Next.js 14](https://nextjs.org/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Form Handling**: FormSubmit
-- **Deployment**: [Vercel](https://vercel.com/)
-- **Animations**: Custom CSS animations and transitions
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **State Management**: React Hooks
+- **Content Rendering**: Markdown for blog posts
 - **Icons**: SVG icons
 
-## 📋 Project Structure
-
-```
-bio-next/
-├── app/              # Main application code
-│   ├── components/   # Reusable UI components
-│   ├── contexts/     # Context providers (language)
-│   ├── lib/          # Utility functions
-│   ├── globals.css   # Global styles
-│   ├── layout.tsx    # Root layout component
-│   └── page.tsx      # Home page component
-├── public/           # Static assets
-│   └── images/       # Image assets
-├── tailwind.config.ts # Tailwind configuration
-└── package.json      # Project dependencies
-```
-
-## 🔧 Key Components
-
-1. **Language Switcher**: Toggle between English and Turkish languages with smooth text transitions
-2. **Navigation**: Responsive navbar with mobile menu
-3. **Squares Background**: Interactive animated background with hover effects
-4. **Project Cards**: Showcase of personal projects with details
-5. **Contact Form**: Form for visitors to send messages directly
-6. **Thank You Modal**: Confirmation modal after form submission
-
-## 📦 Installation and Setup
+## Getting Started
 
 ### Prerequisites
-- Node.js 18+ and npm
 
-### Installation Steps
+- Node.js 16.8.0 or later
+- npm or yarn
+
+### Installation
 
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/bio-next.git
-cd bio-next
+   ```bash
+   git clone https://github.com/yourusername/next-app-v3.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd next-app-v3
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## Project Structure
+
+```
+next-app-v3/
+├── app/
+│   ├── about/                  # About page
+│   ├── blog/                   # Blog pages
+│   │   ├── [slug]/             # Individual blog post pages
+│   │   └── page.tsx            # Blog list page
+│   ├── components/             # Reusable components
+│   │   ├── animations/         # Animation components
+│   │   └── ...
+│   ├── context/                # React context providers
+│   ├── data/                   # Static data (blog posts, etc.)
+│   ├── gallery/                # Gallery page
+│   ├── lib/                    # Utility functions
+│   ├── portfolio/              # Portfolio pages
+│   ├── favicon.ico             # Site favicon
+│   ├── globals.css             # Global styles
+│   ├── layout.tsx              # Root layout
+│   └── page.tsx                # Home page
+├── public/                     # Static assets
+├── .gitignore
+├── next.config.js
+├── package.json
+├── README.md
+└── tailwind.config.js
 ```
 
-2. Install dependencies:
-```bash
-npm install
+## Pages
+
+- **Home**: Introduction and recent works
+- **Portfolio**: Showcase of projects
+- **Blog**: Articles on web development and technology
+- **Gallery**: Visual content display
+- **About**: Personal information and skills
+
+## Blog Features
+
+- Markdown support for rich content
+- Categories for organization
+- Reading time estimation
+- Related posts
+- Publish dates
+
+## Customization
+
+### Social Media Links
+
+Edit the footer component to update your social media links:
+
+```tsx
+// Update these links with your profiles
+<a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+  GitHub
+</a>
+<a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">
+  Instagram
+</a>
 ```
 
-3. Run the development server:
-```bash
-npm run dev
+### Blog Content
+
+Blog posts are stored in JSON format in `app/data/blog-en.json`. Add new posts by appending to this file:
+
+```json
+{
+  "slug": "your-post-slug",
+  "title": "Your Post Title",
+  "date": "YYYY-MM-DD",
+  "excerpt": "Brief description of your post",
+  "category": "Category",
+  "author": "Your Name",
+  "readTime": "X min read",
+  "content": "# Your Markdown Content Here"
+}
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+## Deployment
 
-### Building for Production
-
-```bash
-npm run build
-```
-
-### Deployment
-
-The easiest way to deploy this project is using the [Vercel Platform](https://vercel.com):
+This project can be easily deployed to Vercel, Netlify, or any other hosting platform that supports Next.js:
 
 ```bash
-npm install -g vercel
+# For Vercel
 vercel
+
+# For Netlify
+netlify deploy
 ```
 
-## 🎨 Customization
+## License
 
-- Edit personal information in `app/contexts/LanguageContext.tsx`
-- Modify theme colors in `app/globals.css`
-- Update projects in `app/page.tsx`
-- Add or modify animations in `tailwind.config.ts`
+This project is licensed under the GPL-3.0 License - see the LICENSE file for details.
 
-## 📄 License
+## Acknowledgments
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Contact
-
-For any questions or inquiries, feel free to reach out:
-
-- **Email**: batuhaneroglu145@gmail.com
-- **GitHub**: [https://github.com/hhydraaa](https://github.com/hhydraaa)
-- **Instagram**: [https://www.instagram.com/batuhan13485/](https://www.instagram.com/batuhan13485/)
-
----
-
-Built with ❤️ by Batuhan Eroğlu
+- Next.js team for the amazing framework
+- Tailwind CSS for the utility-first CSS framework
+- Framer Motion for the animation library

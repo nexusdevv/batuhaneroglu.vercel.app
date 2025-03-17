@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "./contexts/LanguageContext";
+import Navbar from "./components/Navbar";
+import { Providers } from "./context/Providers";
 
-const inter = Inter({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-inter',
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Batuhan Eroğlu | Full-Stack Developer",
-  description: "",
+  title: "Batuhan Eroğlu | Portfolio",
+  description: "Personal website and portfolio of Batuhan Eroğlu",
 };
 
 export default function RootLayout({
@@ -20,11 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <LanguageProvider>
+    <html lang="en" className="dark">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+      >
+        <Providers>
+          <Navbar />
           {children}
-        </LanguageProvider>
+        </Providers>
       </body>
     </html>
   );
