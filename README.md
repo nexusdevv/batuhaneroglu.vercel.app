@@ -36,7 +36,7 @@ A modern, responsive personal portfolio and blog website built with Next.js 14 a
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/next-app-v3.git
+   git clone https://github.com/nexusdevv/next-app-v3.git
    ```
 
 2. Navigate to the project directory:
