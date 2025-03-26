@@ -23,6 +23,31 @@ export default function BlogPage() {
     setBlogPosts(posts);
     setLoading(false);
   }, [language]);
+
+  useEffect(() => {
+    // Add custom scrollbar styles
+    const style = document.createElement('style');
+    style.textContent = `
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #ffffff;
+          border-radius: 10px
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #d4d4d4;
+        }
+      `;
+    document.head.appendChild(style);
+  
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
   
   const filteredPosts = blogPosts.filter(post => 
     post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 

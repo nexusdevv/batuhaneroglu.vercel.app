@@ -19,7 +19,8 @@ const translations = {
     "description": "I develop modern web technologies and user experience-focused software solutions. I work passionately to create minimal, efficient, and impactful digital experiences.",
     "cta": {
       "portfolio": "View My Portfolio",
-      "about": "About Me"
+      "about": "About Me",
+      "contact": "Contact Me"
     },
     "recentWorks": "Recent Works",
     "viewAll": "View all projects",

@@ -27,6 +27,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   useEffect(() => {
     setLoading(true);
     
+    
     // Blog gönderisini getir
     const blogPost = getBlogPost(slug, language);
     setPost(blogPost);
@@ -35,6 +36,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       const related = getRelatedPosts(slug, language, 2);
       setRelatedPosts(related);
     }
+    
     
     setLoading(false);
   }, [slug, language]);

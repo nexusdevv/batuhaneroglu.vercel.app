@@ -3,12 +3,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "./context/LanguageContext";
-import FadeIn from "./components/animations/FadeIn";
 import BlurIn from "./components/animations/BlurIn";
 import AnimatedContent from "./components/animations/AnimatedContent";
+import { useEffect } from "react";
 
 export default function Home() {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    // Add custom scrollbar styles
+    const style = document.createElement('style');
+    style.textContent = `
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ffffff;
+        border-radius: 10px
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d4d4d4;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
@@ -16,7 +41,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <AnimatedContent>
             <div className="grid gap-20 md:grid-cols-2 items-center">
-              <FadeIn>
+              <BlurIn>
                 <div className="space-y-8">
                   <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
                     Batuhan Eroğlu
@@ -36,18 +61,66 @@ export default function Home() {
                     >
                       {t('home.cta.about')}
                     </Link>
+                    <Link 
+                      href="/contact" 
+                      className="flex items-center justify-center h-12 px-6 font-medium rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+                    >
+                      {t('home.cta.contact')}
+                    </Link>
                   </div>
                 </div>
-              </FadeIn>
+              </BlurIn>
+              
+              <BlurIn delay={0.2}>
+                <div className="relative h-80 w-full rounded-2xl overflow-hidden">
+                  <Image 
+                    src="/nexus.png" 
+                    alt="nexus" 
+                    fill 
+                    className="object-cover"
+                    priority
+                    draggable="false"
+                  />
+                </div>
+              </BlurIn>
             </div>
-            <FadeIn delay={0.4} className="mt-24 space-y-8">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-                {t('home.recentWorks')}
-              </h2>
+            
+            <BlurIn delay={0.3} className="mt-24">
+              <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8">
+                <h2 className="text-2xl font-bold mb-6">My Expertise</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="flex flex-col border border-zinc-800 items-center text-center p-4 bg-black rounded-xl hover:bg-zinc-500/10 transition-colors">
+                    <svg className="w-10 h-10 text-zinc-400 mb-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 16.5c2.5 0 4.5-2 4.5-4.5S14.5 7.5 12 7.5 7.5 9.5 7.5 12s2 4.5 4.5 4.5zm0-7c1.4 0 2.5 1.1 2.5 2.5S13.4 14.5 12 14.5 9.5 13.4 9.5 12 10.6 9.5 12 9.5z"/>
+                      <path d="M3.5 12c0-4.7 3.8-8.5 8.5-8.5 1.7 0 3.4.5 4.8 1.5.5.3 1.1.2 1.4-.3.3-.5.2-1.1-.3-1.4C16 2.1 14 1.5 12 1.5c-5.8 0-10.5 4.7-10.5 10.5S6.2 22.5 12 22.5c2 0 4-.6 5.9-1.8.5-.3.6-.9.3-1.4-.3-.5-.9-.6-1.4-.3-1.4 1-3.1 1.5-4.8 1.5-4.7 0-8.5-3.8-8.5-8.5z"/>
+                    </svg>
+                    <span className="font-medium">Frontend Development</span>
+                  </div>
+                  <div className="flex flex-col border border-zinc-800 items-center text-center p-4 bg-black rounded-xl hover:bg-zinc-500/10 transition-colors">
+                    <svg className="w-20 h-10 text-zinc-400 mb-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
+                    </svg>
+                    <span className="font-medium">Backend Development</span>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <svg className="w-20 h-8 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 70 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M50 5l15 7m0 0l-15 7m15-7H3" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col border border-zinc-800 items-center text-center p-4 bg-black rounded-xl hover:bg-zinc-500/10 transition-colors">
+                    <svg className="w-10 h-10 text-zinc-400 mb-3 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span className="font-medium">Full Stack Development</span>
+                  </div>
+                </div>
+              </div>
+            </BlurIn>
+            <BlurIn delay={0.4} className="mt-24 space-y-8">
               
               <BlurIn delay={0.3}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="group relative bg-gradient-to-b from-zinc-900 to-zinc-950/50 rounded-2xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-zinc-900/10">
+                  <div className="group relative bg-gradient-to-b from-black to-zinc-950/50 rounded-2xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-zinc-900/10">
                     <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="p-6 space-y-4">
                       <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 w-fit p-4 rounded-2xl border border-zinc-800/50">
@@ -57,10 +130,15 @@ export default function Home() {
                       </div>
                       <h3 className="text-xl font-bold bg-gradient-to-r from-zinc-300 to-zinc-100 bg-clip-text text-transparent">Discord Clone</h3>
                       <p className="text-zinc-500 leading-relaxed">Full-stack Discord replica with WebSocket integration, role-based permissions, and real-time voice channels.</p>
+                      <div className="pt-2">
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md mr-2">React</span>
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md mr-2">Node.js</span>
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md">WebSockets</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="group relative bg-gradient-to-b from-zinc-900 to-zinc-950/50 rounded-2xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-zinc-900/10">
+                  <div className="group relative bg-gradient-to-b from-black to-zinc-950/50 rounded-2xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-zinc-900/10">
                     <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="p-6 space-y-4">
                       <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 w-fit p-4 rounded-2xl border border-zinc-800/50">
@@ -70,6 +148,11 @@ export default function Home() {
                       </div>
                       <h3 className="text-xl font-bold bg-gradient-to-r from-zinc-300 to-zinc-100 bg-clip-text text-transparent">Modern Portfolio</h3>
                       <p className="text-zinc-500 leading-relaxed">You're seeing it rn.</p>
+                      <div className="pt-2">
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md mr-2">Next.js</span>
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md mr-2">TailwindCSS</span>
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md">Framer Motion</span>
+                      </div>
                     </div>
                   </div>
 
@@ -81,10 +164,48 @@ export default function Home() {
                     >
                       {t('home.cta.portfolio')}
                     </Link>
+                    <div className="mt-4 p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+                      <h4 className="font-medium text-zinc-300 mb-2">Technology Stack</h4>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-2 py-1 text-xs bg-zinc-800/80 rounded-full text-zinc-400">React</span>
+                        <span className="px-2 py-1 text-xs bg-zinc-800/80 rounded-full text-zinc-400">Next.js</span>
+                        <span className="px-2 py-1 text-xs bg-zinc-800/80 rounded-full text-zinc-400">TypeScript</span>
+                        <span className="px-2 py-1 text-xs bg-zinc-800/80 rounded-full text-zinc-400">Node.js</span>
+                        <span className="px-2 py-1 text-xs bg-zinc-800/80 rounded-full text-zinc-400">TailwindCSS</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </BlurIn>
-            </FadeIn>
+            </BlurIn>
+            
+            <BlurIn delay={0.5} className="mt-24">
+              <div className="bg-gradient-to-br bg-black rounded-2xl border border-zinc-800 p-8">
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-4">Would You Like to Work With Me?</h2>
+                    <p className="text-zinc-400 mb-6">I offer professional solutions for your project. Get in touch now and let's bring your projects to life.</p>
+                    <Link 
+                      href="/contact" 
+                      className="inline-flex items-center justify-center h-12 px-6 font-medium rounded-md bg-white text-black hover:bg-zinc-200 transition-colors"
+                    >
+                      Get in Touch
+                    </Link>
+                  </div>
+                  <div className="flex-1 flex justify-center">
+                    <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-zinc-800">
+                      <Image 
+                        src="/nexus.png" 
+                        alt="İletişim" 
+                        fill 
+                        className="object-cover"
+                        draggable="false"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </BlurIn>
           </AnimatedContent>
         </div>
       </main>

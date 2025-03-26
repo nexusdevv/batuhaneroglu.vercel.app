@@ -67,7 +67,7 @@ export default function PortfolioPage() {
             <BlurIn delay={0.3}>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {projects.map(project => (
-                  <div key={project.id} className="group relative bg-gradient-to-b from-zinc-900 to-zinc-950/50 rounded-2xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-zinc-900/10">
+                  <div key={project.id} className="group relative bg-gradient-to-b from-black to-zinc-950/50 rounded-2xl border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-zinc-900/10">
                     <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="p-6 space-y-4">
                       <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 w-fit p-4 rounded-2xl border border-zinc-800/50">
@@ -82,9 +82,9 @@ export default function PortfolioPage() {
                 {/* Placeholder grayed out projects */}
                 {projects.length > 0 && (
                   <>
-                    <div className="group relative bg-gradient-to-b from-zinc-900/50 to-zinc-950/30 rounded-2xl border border-zinc-800/30 opacity-50">
+                    <div className="group relative bg-gradient-to-b from-zinc-700/50 to-zinc-950/30 rounded-2xl border border-zinc-800/30 opacity-50">
                       <div className="p-6 space-y-4">
-                        <div className="bg-gradient-to-br from-zinc-900/60 to-zinc-800/60 w-fit p-4 rounded-2xl border border-zinc-800/30">
+                        <div className="bg-gradient-to-br from-zinc-700/60 to-zinc-800/60 w-fit p-4 rounded-2xl border border-zinc-800/30">
                           <svg className="w-12 h-12 text-zinc-600/50" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                           </svg>
@@ -94,15 +94,15 @@ export default function PortfolioPage() {
                       </div>
                     </div>
                     
-                    <div className="group relative bg-gradient-to-b from-zinc-900/30 to-zinc-950/20 rounded-2xl border border-zinc-800/20 opacity-30">
+                    <div className="group relative bg-gradient-to-b from-zinc-700/30 to-zinc-950/20 rounded-2xl border border-zinc-800/20 opacity-30">
                       <div className="p-6 space-y-4">
-                        <div className="bg-gradient-to-br from-zinc-900/40 to-zinc-800/40 w-fit p-4 rounded-2xl border border-zinc-800/20">
+                        <div className="bg-gradient-to-br from-zinc-500/40 to-zinc-800/40 w-fit p-4 rounded-2xl border border-zinc-800/20">
                           <svg className="w-12 h-12 text-zinc-600/30" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                           </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-zinc-500/50">Will Be More</h3>
-                        <p className="text-zinc-600/30 leading-relaxed">Stay tuned for more exciting projects...</p>
+                        <h3 className="text-xl font-bold text-zinc-300/50">Will Be More</h3>
+                        <p className="text-zinc-100/30 leading-relaxed">Stay tuned for more exciting projects...</p>
                       </div>
                     </div>
                   </>

@@ -54,6 +54,9 @@ export default function Navbar() {
               <Link href="/about" className="text-white hover:text-zinc-400 transition-colors">
                 About
               </Link>
+              <Link href="/contact" className="text-white hover:text-zinc-400 transition-colors">
+                Contact
+              </Link>
             </div>
           </div>
           
@@ -115,6 +118,13 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
+              </Link>
+              <Link 
+                href="/contact" 
+                className="block px-3 py-2 text-white hover:bg-zinc-900 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
               </Link>
             </div>
           </motion.div>
