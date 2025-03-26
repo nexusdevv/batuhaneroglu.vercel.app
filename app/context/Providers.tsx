@@ -4,7 +4,7 @@ import React from 'react';
 import { ThemeProvider } from './ThemeContext';
 import { LanguageProvider } from './LanguageContext';
 
-// TransitionWrapper
+// transition wrapper
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface TransitionWrapperProps {

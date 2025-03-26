@@ -11,7 +11,7 @@ export default function Home() {
   const { t } = useLanguage();
 
   useEffect(() => {
-    // Add custom scrollbar styles
+    // add custom scrollbar styles
     const style = document.createElement('style');
     style.textContent = `
       ::-webkit-scrollbar {

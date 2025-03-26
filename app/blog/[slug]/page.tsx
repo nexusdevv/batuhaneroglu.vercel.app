@@ -28,7 +28,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     setLoading(true);
     
     
-    // Blog gönderisini getir
+    // get the blog post
     const blogPost = getBlogPost(slug, language);
     setPost(blogPost);
     

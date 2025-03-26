@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Listen to scroll event
+  // listen to scroll event
   useEffect(() => {
     if (typeof window === 'undefined') return;
     

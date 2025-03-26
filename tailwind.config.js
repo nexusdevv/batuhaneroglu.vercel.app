@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // zinc colors compatible with light and dark mode
+        // zinc colors for light and dark mode compatibility
         zinc: {
           50: '#fafafa',
           100: '#f4f4f5',

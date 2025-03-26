@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
 }
 
-/* SVG ikon boyutları için özel sınıflar */
+/* custom classes for svg icon sizes */
 .icon-sm {
   width: 1rem;
   height: 1rem;
@@ -36,7 +36,7 @@ body {
   height: 2rem;
 }
 
-/* Animasyon sınıfları */
+/* animation classes */
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out forwards;

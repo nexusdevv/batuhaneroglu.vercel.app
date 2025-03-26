@@ -15,17 +15,17 @@ export default function BlogPage() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // Load blog posts
+  // load blog posts
   useEffect(() => {
     setLoading(true);
-    // Get blog posts
+    // get blog posts
     const posts = getAllBlogPosts('en');
     setBlogPosts(posts);
     setLoading(false);
   }, [language]);
 
   useEffect(() => {
-    // Add custom scrollbar styles
+    // add custom scrollbar styles
     const style = document.createElement('style');
     style.textContent = `
         ::-webkit-scrollbar {

@@ -13,7 +13,7 @@ const defaultValue: ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType>(defaultValue);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  // Apply dark theme when page loads
+  // apply dark theme when page loads
   useEffect(() => {
     document.documentElement.classList.add('dark');
     document.documentElement.classList.remove('light');

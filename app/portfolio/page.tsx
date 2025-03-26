@@ -79,7 +79,7 @@ export default function PortfolioPage() {
                   </div>
                 ))}
                 
-                {/* Placeholder grayed out projects */}
+                {/* placeholder grayed out projects */}
                 {projects.length > 0 && (
                   <>
                     <div className="group relative bg-gradient-to-b from-zinc-700/50 to-zinc-950/30 rounded-2xl border border-zinc-800/30 opacity-50">
@@ -101,8 +101,8 @@ export default function PortfolioPage() {
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                           </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-zinc-300/50">Will Be More</h3>
-                        <p className="text-zinc-100/30 leading-relaxed">Stay tuned for more exciting projects...</p>
+                        <h3 className="text-xl font-bold text-zinc-300/50">More Coming</h3>
+                        <p className="text-zinc-100/30 leading-relaxed">Stay tuned for additional projects...</p>
                       </div>
                     </div>
                   </>

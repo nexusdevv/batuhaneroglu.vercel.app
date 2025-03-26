@@ -7,7 +7,7 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-// English translations
+// english translations
 const translations = {
   "navbar": {
     "portfolio": "Portfolio",
@@ -80,14 +80,14 @@ const translations = {
   }
 };
 
-// Simple translation function
+// simple translation function
 const translate = (key: string): string => {
   const parts = key.split('.');
   let result: any = translations;
 
   for (const part of parts) {
     if (result[part] === undefined) {
-      return key; // Return the key if translation not found
+      return key; // return the key if translation not found
     }
     result = result[part];
   }
@@ -95,7 +95,7 @@ const translate = (key: string): string => {
   return typeof result === 'string' ? result : key;
 };
 
-// Default values
+// default values
 const defaultValue: LanguageContextType = {
   language: 'en',
   t: translate
